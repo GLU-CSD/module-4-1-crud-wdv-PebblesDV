@@ -6,7 +6,7 @@ session_start();
  */
 // $dbhost = "localhost";
 // $dbuser = "root";
-// $dbpass = "root";
+// $dbpass = "";
 // $dbname = "producten";
 
 /**
