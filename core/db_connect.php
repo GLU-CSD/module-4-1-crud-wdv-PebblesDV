@@ -25,7 +25,7 @@ if ($con->connect_errno) {
 }
 
 define("BASEURL", "http://localhost/school/jaar1/periode4/crud/module-4-1-crud-wdv-PebblesDV/");
-// define("BASEURL_CMS", "http://localhost/webdev-base/admin/");
+define("BASEURL_CMS", "http://localhost/webdev-base/admin/");
 
 function prettyDump($var)
 {

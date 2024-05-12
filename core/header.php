@@ -1,16 +1,18 @@
 <?php
-    include('core/db_connect.php');
+include('core/db_connect.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="<?=BASEURL;?>assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="<?php echo BASEURL;?>assets/css/style.css">
+    <link rel="stylesheet" href="<?= BASEURL; ?>assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?php echo BASEURL; ?>assets/css/style.css">
     <title>Webshop met een leuke naam</title>
 </head>
+
 <body>
     <div class="container">
         <div class="row">
@@ -28,11 +30,12 @@
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="#scrollspyHeading3">Third</a></li>
                             <li><a class="dropdown-item" href="#scrollspyHeading4">Fourth</a></li>
-                            <li><hr class="dropdown-divider"></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
                             <li><a class="dropdown-item" href="#scrollspyHeading5">Fifth</a></li>
                         </ul>
                     </li>
                 </ul>
             </nav>
         </div>
-   
