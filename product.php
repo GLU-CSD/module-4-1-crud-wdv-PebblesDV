@@ -11,11 +11,11 @@ include('core/get_product_by_id.php');
                 <div class="col-md-6">
                     <div class="images p-3">
                         <div class="text-center p-4">
-                            <img id="main-image" src="<?= $productById["images"][0] ?>" width="250" />
+                            <img id="main-image" src="<?= $productById["images"][0]["image_url"] ?>" width="250" />
                         </div>
                         <div class="thumbnail text-center">
-                            <img src="<?= $productById["images"][1] ?>" width="70">
-                            <img src="<?= $productById["images"][2] ?>" width="70">
+                            <img src="<?= $productById["images"][1]["image_url"] ?>" width="70">
+                            <img src="<?= $productById["images"][2]["image_url"] ?>" width="70">
                         </div>
                     </div>
                 </div>

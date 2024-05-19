@@ -15,7 +15,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt = $con->prepare("INSERT INTO products (category, title, price, description) VALUES (?, ?, ?, ?)");
 
         // Bind parameter values
-        $stmt->bind_param("ssss", $category, $title, $price, $description);
+        $stmt->bind_param("ssds", $category, $title, $price, $description);
 
         // Execute the query
         $stmt->execute();
@@ -35,9 +35,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Execute the query
         $stmt->execute();
-
-        // Get the ID of the newly inserted product
-        $newProductId = $con->insert_id;
 
         // Close the statement
         $stmt->close();

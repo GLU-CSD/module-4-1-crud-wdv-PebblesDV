@@ -3,7 +3,6 @@
 include('core/header.php');
 include('core/get_product_by_id.php');
 
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $productId = $_GET["id"];
     $category = $_POST['category'];
@@ -14,40 +13,36 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $img2 = $_POST['img2'];
     $img3 = $_POST['img3'];
 
+    if ($productId !== "" || $category !== "" || $title !== "" || $price !== "" || $description !== "" || $img1 !== "" || $img2 !== "" || $img3 !== "") {
+        $stmt = $con->prepare("UPDATE products SET category = ?, title = ?, price = ?, description = ? WHERE product_id = ?;");
 
-    prettyDump($productById);
+        // Bind parameter values
+        $stmt->bind_param("ssdsi", $category, $title, $price, $description, $productId);
 
-    // if ($productId !== "" || $category !== "" || $title !== "" || $price !== "" || $description !== "" || $img1 !== "" || $img2 !== "" || $img3 !== "") {
-    //     $stmt = $con->prepare("UPDATE products SET category = ?, title = ?, price = ?, description = ? WHERE product_id = ?;");
+        // Execute the query
+        $stmt->execute();
 
-    //     // Bind parameter values
-    //     $stmt->bind_param("ssisi", $category, $title, $price, $description, $productId);
+        // Close the statement
+        $stmt->close();
 
-    //     // Execute the query
-    //     $stmt->execute();
+        $stmt = $con->prepare("UPDATE images SET image = ? WHERE id = ?;");
+        $stmt->bind_param("si", $img1, $productById["images"][0]["image_id"]);
+        $stmt->execute();
+        $stmt->close();
 
-    //     // Get the ID of the newly inserted product
-    //     $newProductId = $con->insert_id;
+        $stmt = $con->prepare("UPDATE images SET image = ? WHERE id = ?;");
+        $stmt->bind_param("si", $img2, $productById["images"][1]["image_id"]);
+        $stmt->execute();
+        $stmt->close();
 
-    //     // Close the statement
-    //     $stmt->close();
+        $stmt = $con->prepare("UPDATE images SET image = ? WHERE id = ?;");
+        $stmt->bind_param("si", $img3, $productById["images"][2]["image_id"]);
+        $stmt->execute();
+        $stmt->close();
 
-    //     echo $newProductId;
-
-    //     $stmt = $con->prepare("INSERT INTO images (image, product_id) VALUES (?, ?), (?, ?), (?, ?)");
-
-    //     // Bind parameter values
-    //     $stmt->bind_param("sisisi", $img1, $newProductId, $img2, $newProductId, $img3, $newProductId);
-
-    //     // Execute the query
-    //     $stmt->execute();
-
-    //     // Get the ID of the newly inserted product
-    //     $newProductId = $con->insert_id;
-
-    //     // Close the statement
-    //     $stmt->close();
-    // }
+        header("Location: product.php?id=" . $productById["product_id"]);
+        exit();
+    }
 }
 
 
@@ -70,9 +65,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <input type="text" name="title" placeholder="Title" value="<?= $productById["title"] ?>">
             <input type="text" name="price" placeholder="Price" value="<?= $productById["price"] ?>">
             <input type="text" name="description" placeholder="Description" value="<?= $productById["description"] ?>">
-            <input type="text" name="img1" placeholder="Image 1" value="<?= $productById["images"][0] ?>">
-            <input type="text" name="img2" placeholder="Image 2" value="<?= $productById["images"][1] ?>">
-            <input type="text" name="img3" placeholder="Image 3" value="<?= $productById["images"][2] ?>">
+            <input type="text" name="img1" placeholder="Image 1" value="<?= $productById["images"][0]["image_url"] ?>">
+            <input type="text" name="img2" placeholder="Image 2" value="<?= $productById["images"][1]["image_url"] ?>">
+            <input type="text" name="img3" placeholder="Image 3" value="<?= $productById["images"][2]["image_url"] ?>">
             <input type="submit" name="sub-btn" value="Submit">
         </form>
     <?php endif; ?>

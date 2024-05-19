@@ -11,7 +11,7 @@ include('core/get_products.php');
     <?php foreach ($allProducts as $key => $product) : ?>
         <div class="col-4 mb-3">
             <div class="card w-100">
-                <img src="<?= $product["images"][0] ?>" class="card-img-top" alt="...">
+                <img src="<?= $product["images"][0]["image_url"] ?>" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title"><?= $product["category"] . " " . $product["title"] ?></h5>
                     <p class="card-text">&euro; <?= $product["price"] ?></p>
