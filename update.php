@@ -60,14 +60,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
 
     <?php if ($_SERVER["REQUEST_METHOD"] == "GET") : ?>
-        <form action="update.php?id=<?= $productById["product_id"] ?>" method="post">
-            <input type="text" name="category" placeholder="Category" value="<?= $productById["category"] ?>">
-            <input type="text" name="title" placeholder="Title" value="<?= $productById["title"] ?>">
-            <input type="text" name="price" placeholder="Price" value="<?= $productById["price"] ?>">
-            <input type="text" name="description" placeholder="Description" value="<?= $productById["description"] ?>">
-            <input type="text" name="img1" placeholder="Image 1" value="<?= $productById["images"][0]["image_url"] ?>">
-            <input type="text" name="img2" placeholder="Image 2" value="<?= $productById["images"][1]["image_url"] ?>">
-            <input type="text" name="img3" placeholder="Image 3" value="<?= $productById["images"][2]["image_url"] ?>">
+        <form action="update.php?id=<?= $productById["product_id"] ?>" method="post" class="cms_form">
+            <input type="text" name="category" placeholder="Category" value="<?= $productById["category"] ?>" class="cms_field">
+            <input type="text" name="title" placeholder="Title" value="<?= $productById["title"] ?>" class="cms_field">
+            <input type="text" name="price" placeholder="Price" value="<?= $productById["price"] ?>" class="cms_field">
+            <input type="text" name="description" placeholder="Description" value="<?= $productById["description"] ?>" class="cms_field">
+            <input type="text" name="img1" placeholder="Image 1" value="<?= $productById["images"][0]["image_url"] ?>" class="cms_field">
+            <input type="text" name="img2" placeholder="Image 2" value="<?= $productById["images"][1]["image_url"] ?>" class="cms_field">
+            <input type="text" name="img3" placeholder="Image 3" value="<?= $productById["images"][2]["image_url"] ?>" class="cms_field">
             <input type="submit" name="sub-btn" value="Submit">
         </form>
     <?php endif; ?>
@@ -75,3 +75,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </body>
 
 </html>
+
+<?php
+include('core/footer.php');
+?>

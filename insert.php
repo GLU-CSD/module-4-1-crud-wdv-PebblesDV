@@ -53,14 +53,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 
 <body>
-    <form action="insert.php" method="post">
-        <input type="text" name="category" placeholder="Category">
-        <input type="text" name="title" placeholder="Title">
-        <input type="text" name="price" placeholder="Price">
-        <input type="text" name="description" placeholder="Description">
-        <input type="text" name="img1" placeholder="Image 1">
-        <input type="text" name="img2" placeholder="Image 2">
-        <input type="text" name="img3" placeholder="Image 3">
+    <form action="insert.php" method="post" class="cms_form">
+        <input type="text" name="category" placeholder="Category" class="cms_field">
+        <input type="text" name="title" placeholder="Title" class="cms_field">
+        <input type="text" name="price" placeholder="Price" class="cms_field">
+        <input type="text" name="description" placeholder="Description" class="cms_field">
+        <input type="text" name="img1" placeholder="Image 1" class="cms_field">
+        <input type="text" name="img2" placeholder="Image 2" class="cms_field">
+        <input type="text" name="img3" placeholder="Image 3" class="cms_field">
         <input type="submit" name="sub-btn" value="Submit">
     </form>
 
