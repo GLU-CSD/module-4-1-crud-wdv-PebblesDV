@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt->execute();
         $stmt->close();
 
-        header("Location: product.php?id=" . $productById["product_id"]);
+        header("Location: products.php");
         exit();
     }
 }
