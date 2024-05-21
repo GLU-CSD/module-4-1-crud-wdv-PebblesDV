@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Close the statement
         $stmt->close();
 
-        echo $newProductId;
+        // echo $newProductId;
 
         $stmt = $con->prepare("INSERT INTO images (image, product_id) VALUES (?, ?), (?, ?), (?, ?)");
 

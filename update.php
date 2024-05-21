@@ -70,6 +70,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <input type="text" name="img3" placeholder="Image 3" value="<?= $productById["images"][2]["image_url"] ?>" class="cms_field">
             <input type="submit" name="sub-btn" value="Submit">
         </form>
+
+        <form action="delete.php?id=<?= $productById["product_id"] ?>" method="post">
+            <input type="submit" name="del-btn" value="Delete Product">
+        </form>
     <?php endif; ?>
 
 </body>

@@ -15,7 +15,7 @@ include('core/get_products.php');
                 <div class="card-body">
                     <h5 class="card-title"><?= $product["category"] . " " . $product["title"] ?></h5>
                     <p class="card-text">&euro; <?= $product["price"] ?></p>
-                    <a href="product.php?id=<?= $product["product_id"] ?>" class="btn btn-primary">Go somewhere</a>
+                    <a href="product.php?id=<?= $product["product_id"] ?>" class="btn btn-primary">View Product</a>
                 </div>
             </div>
         </div>
